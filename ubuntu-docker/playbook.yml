@@ -26,7 +26,7 @@
   - name: Add Docker Repository
     become: true
     apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable # TODO. Remove hardcoding for ubuntu release name. eg. replace hardcoded "focal" with a variable which fetch value from $(lsb_release -cs)
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
       state: present
 
   - name: refresh apt cache
